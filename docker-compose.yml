@@ -1,0 +1,12 @@
+services:
+  eventpass:
+    build: .
+    ports:
+      - "8080:8000"
+    environment:
+      SECRET_KEY: ${SECRET_KEY:-local-demo-secret}
+    volumes:
+      - event_data:/data
+    restart: unless-stopped
+volumes:
+  event_data:
